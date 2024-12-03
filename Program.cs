@@ -1,5 +1,5 @@
 ﻿using System;
-using Persona;
+using VeterinariaPractica.Models;
 namespace VeterinariaPractica // Note: actual namespace depends on the project name.
 {
     internal class Program
