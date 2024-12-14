@@ -3,13 +3,13 @@ using System.Text.RegularExpressions;
 using VeterinariaPractica.Utilidades;
 namespace VeterinariaPractica.Modelos {
     class Persona {
-        string _nombre;
-        public readonly string Email;
-        string _telefono;
-        string _direccion;
-        public TipoTelefono TipoTelefono;
+        string _nombre = "";
+        public readonly string email;
+        string _telefono = "";
+        string _direccion = "";
+        public TipoTelefono tipoTelefono;
         public string Nombre { get => _nombre; set {
-        if (value.Length < 6 ) {
+        if (string.IsNullOrEmpty(value)) {
             throw new ArgumentException("El nombre debe ser mayor a 6 caracteres.");
         }
             _nombre = value;
@@ -30,14 +30,12 @@ namespace VeterinariaPractica.Modelos {
             }
             _direccion = value;
         }}
-        public Persona(string nombre, TipoTelefono tipoTelefono, string email, Estado estado, string telefono = "", string direccion = "") {
-            
+        public Persona(string nombre, string email, Estado estado) {  
             if (!Validaciones.EsEmailValido(email)){
                 throw new ArgumentException("El mail ingresado no es válido.");
             }
-            Email = email;
+            this.email = email;
             Nombre = nombre;
-            TipoTelefono = tipoTelefono;
             Estado = estado;
         }
     }
