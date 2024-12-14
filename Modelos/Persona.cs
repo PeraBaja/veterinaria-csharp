@@ -39,8 +39,21 @@ namespace VeterinariaPractica.Modelos {
             Nombre = nombre;
             TipoTelefono = tipoTelefono;
             Estado = estado;
-            Telefono = telefono;
-            Direccion = direccion;
+        }
+    }
+    class Dueño : Persona {
+        public List<Mascota> Mascotas { get; private set; } 
+        public Dueño(string nombre, string email, Estado estado)
+        : base(nombre, email, estado){
+            Mascotas = new List<Mascota>();
+        }
+    } 
+
+    class Veterinario : Persona {
+        public readonly string numeroMatricula;
+         public Veterinario(string numeroMatricula, string nombre, string email, Estado estado)
+        : base(nombre, email, estado){
+            this.numeroMatricula = numeroMatricula;
         }
     }
 
