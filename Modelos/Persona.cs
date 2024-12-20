@@ -48,10 +48,10 @@ namespace VeterinariaPractica.Modelos {
     } 
 
     class Veterinario : Persona {
-        public readonly string numeroMatricula;
-         public Veterinario(string numeroMatricula, string nombre, string email, Estado estado)
+        public readonly string númeroMatricula;
+         public Veterinario(string númeroMatricula, string nombre, string email, Estado estado)
         : base(nombre, email, estado){
-            this.numeroMatricula = numeroMatricula;
+            this.númeroMatricula = númeroMatricula;
         }
     }
 
