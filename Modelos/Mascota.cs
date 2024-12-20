@@ -3,7 +3,7 @@
 namespace VeterinariaPractica.Modelos {
     class Mascota {
         
-        public readonly string codigo;
+        public readonly string código;
         public Raza ?Raza { get; private set; }
         public Dueño Dueño { get; private set; }
         string _nombre;
@@ -20,9 +20,9 @@ namespace VeterinariaPractica.Modelos {
             }
             _especie = value;
         } }
-        public Mascota(string codigo, string nombre, Dueño dueño, string especie, Estado estado) {
-            if(string.IsNullOrEmpty(codigo)) {
-                throw new ArgumentException("El codigo no debe estar vacío");
+        public Mascota(string código, string nombre, Dueño dueño, string especie, Estado estado) {
+            if(string.IsNullOrEmpty(código)) {
+                throw new ArgumentException("El código no debe estar vacío");
             }
             if(string.IsNullOrEmpty(nombre)){
                 throw new ArgumentException("La mascota debe tener un nombre");
@@ -30,7 +30,7 @@ namespace VeterinariaPractica.Modelos {
             if(string.IsNullOrEmpty(especie)){
                 throw new ArgumentException("Se debe de indicar una especie");
             }
-            this.codigo = codigo;
+            this.código = código;
             Dueño = dueño;
             _nombre = nombre;
             _especie = especie;
