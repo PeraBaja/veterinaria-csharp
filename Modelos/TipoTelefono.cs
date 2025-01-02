@@ -1,5 +1,5 @@
 namespace VeterinariaPractica.Modelos {
-    enum TipoTelefono {
+    enum TipoTeléfono {
         FIJO,
         MOVIL,
         PUBLICO
