@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Text;
 using VeterinariaPractica.Controladores;
 using VeterinariaPractica.Modelos;
 using VeterinariaPractica.Vistas;
@@ -11,8 +11,10 @@ namespace VeterinariaPractica // Note: actual namespace depends on the project n
             if (!Directory.Exists("Archivos")) {
                 Directory.CreateDirectory("Archivos");
             }
+            Console.OutputEncoding = Encoding.UTF8;
             VistaVeterinario vistaVeterinario = new VistaVeterinario();
-            new ControladorVeterinario(vistaVeterinario).Listar();
+            new ControladorVeterinario(vistaVeterinario).Agregar();
+
         }
     }
 }

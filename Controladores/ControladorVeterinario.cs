@@ -1,7 +1,8 @@
 
 
+using System.Text;
+using System.Text.Encodings.Web;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using VeterinariaPractica.Modelos;
 using VeterinariaPractica.Vistas;
 
@@ -25,13 +26,27 @@ namespace VeterinariaPractica.Controladores {
         }
 
         public void CargarDesdeJson() {
-            string jsonContent = File.ReadAllText("Archivos/veterinarios.json");
-            _veterinarios = JsonSerializer.Deserialize<List<Veterinario>>(jsonContent) ?? [];
+            string contenidoJson = File.ReadAllText("Archivos/veterinarios.json", Encoding.UTF8);
+            Console.WriteLine("json content: '" + contenidoJson + "'");
+            if (string.IsNullOrEmpty(contenidoJson)){
+                _veterinarios = [];
+            }
+            else{
+                _veterinarios = JsonSerializer.Deserialize<List<Veterinario>>(contenidoJson, new JsonSerializerOptions() { 
+                    WriteIndented = true, 
+                    Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+                    }) ?? [];
+            }
+            
         } 
         public void GuardarEnJson() {
             File.WriteAllText(
                 "Archivos/veterinarios.json", 
-                JsonSerializer.Serialize(_veterinarios, new JsonSerializerOptions() { WriteIndented = true })
+                JsonSerializer.Serialize(_veterinarios, new JsonSerializerOptions() { 
+                    WriteIndented = true, 
+                    Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+                    }),
+                    Encoding.UTF8
             );
         }
     }
