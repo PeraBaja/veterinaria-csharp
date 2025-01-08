@@ -12,7 +12,12 @@ namespace VeterinariaPractica.Controladores {
         List<Veterinario> _veterinarios = new List<Veterinario>();
         public ControladorVeterinario(VistaVeterinario vista): base(vista){
             _vista = vista;
+            if(!File.Exists("Archivos/veterinarios.json")){
+                File.Create("Archivos/veterinarios.json");
+            }
+            
             CargarDesdeJson();
+            
         }
         
         public override void Agregar() {
