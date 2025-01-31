@@ -13,8 +13,10 @@ namespace VeterinariaPractica // Note: actual namespace depends on the project n
             }
             Console.OutputEncoding = Encoding.UTF8;
             VistaVeterinario vistaVeterinario = new VistaVeterinario();
-            new ControladorVeterinario(vistaVeterinario).Agregar();
 
+            ControladorVeterinario controladorVeterinario = new ControladorVeterinario(vistaVeterinario);
+            controladorVeterinario.Agregar();
+            controladorVeterinario.Listar();
         }
     }
 }
