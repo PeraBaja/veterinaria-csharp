@@ -39,6 +39,8 @@ namespace VeterinariaPractica.Controladores {
         }
 
         public void CargarDesdeJson() {
+            if (!File.Exists("Archivos/veterinarios.json")) return;
+
             string contenidoJson = File.ReadAllText("Archivos/veterinarios.json", Encoding.UTF8);
             Console.WriteLine("json content: '" + contenidoJson + "'");
             if (string.IsNullOrEmpty(contenidoJson)){
