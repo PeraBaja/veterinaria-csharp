@@ -7,17 +7,11 @@ using VeterinariaPractica.Modelos;
 using VeterinariaPractica.Vistas;
 
 namespace VeterinariaPractica.Controladores {
-    class ControladorVeterinario: ControladorBase {
-        VistaVeterinario _vista;
+    class ControladorVeterinario: ControladorBase<Veterinario> {
         List<Veterinario> _veterinarios = new List<Veterinario>();
-        public ControladorVeterinario(VistaVeterinario vista): base(vista){
+        public ControladorVeterinario(VistaVeterinario vista): base(vista) {
             _vista = vista;
-            if(!File.Exists("Archivos/veterinarios.json")){
-                File.Create("Archivos/veterinarios.json");
-            }
-            
             CargarDesdeJson();
-            
         }
         
         public override void Agregar() {
@@ -25,8 +19,7 @@ namespace VeterinariaPractica.Controladores {
             _veterinarios.Add(veterinario);
             GuardarEnJson();
         }
-        public override void Listar()
-        {
+        public override void Listar() {
             _vista.Listar(_veterinarios);
         }
         public Veterinario Seleccionar() {
