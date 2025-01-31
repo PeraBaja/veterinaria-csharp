@@ -1,22 +1,11 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace VeterinariaPractica.Modelos {
     class Diagnóstico {
-        public readonly string código;
-        string _observación = "";
-        public string Observación { get => _observación; set {
-            if(string.IsNullOrEmpty(value)) {
-                throw new ArgumentException("El código no debe estar vacío");
-            }
-            _observación = Observación;
-        }}
-        public Diagnóstico(string código, string observación) {
-            if(string.IsNullOrEmpty(código)) {
-                    throw new ArgumentException("El código no debe estar vacío");
-            }
-            if(string.IsNullOrEmpty(observación)) {
-                throw new ArgumentException("El código no debe estar vacío");
-            }
-            this.código = código;
-            Observación = observación;
-        }
+        [Required(ErrorMessage = "Se necesita un código")]
+        public string Código { get; set;} = string.Empty;
+        [Required(ErrorMessage = "Se necesita una observación ")]
+        [MaxLength(300, ErrorMessage = "La observacion debe ser menor a 300 caracteres")]
+        public string Observación { get; set; } = string.Empty;
     }
 }
