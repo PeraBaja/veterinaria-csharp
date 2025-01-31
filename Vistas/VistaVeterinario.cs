@@ -31,5 +31,16 @@ namespace VeterinariaPractica.Vistas {
                 Email = email
                 };
         }
+        public string PedirEmail() {
+            Console.WriteLine("Ingrese el email del veterinario: ");
+            string email = "";
+
+            while(string.IsNullOrEmpty(email)){
+                Console.WriteLine("Email no ingresado. Se necesita ingresar el mail: ");
+                email = Console.ReadLine() ?? "";
+            }
+            return email;
+        }
     }
+    
 }
