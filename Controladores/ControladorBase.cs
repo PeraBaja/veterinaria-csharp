@@ -3,9 +3,9 @@ using VeterinariaPractica.Modelos;
 using VeterinariaPractica.Vistas;
 
 namespace VeterinariaPractica.Controladores {
-    abstract class ControladorBase {
-        IVistable<Veterinario> _vista;
-        public ControladorBase(IVistable<Veterinario> vista) {
+    abstract class ControladorBase<T> {
+        protected IVistable<T> _vista;
+        public ControladorBase(IVistable<T> vista) {
             _vista = vista;
         }
         public virtual void Agregar() {
