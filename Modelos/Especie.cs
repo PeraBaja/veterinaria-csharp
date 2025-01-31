@@ -1,18 +1,12 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace VeterinariaPractica.Modelos {
 
     
-    class Raza {
-        public readonly string nombre;
-        public Estado Estado { get; private set; }
-
-        public string detalle;
-        public Raza(string nombre, Estado estado, string detalle= "") {
-            if (string.IsNullOrEmpty(nombre)) {
-                throw new ArgumentException("El nombre no debería estar vacío");
-            }
-            this.nombre = nombre;
-            Estado = estado;
-            this.detalle = detalle;
-        }
+    class Especie {
+        [Required(ErrorMessage = "Se necesita el nombre coloquial de la especie")]
+        public string NombreColoquial { get; set; } = string.Empty;
+        public string NombreCientífico { get; set; } = string.Empty;
+        public Estado Estado { get; set; } = new Estado();
     }
 }
