@@ -29,6 +29,14 @@ namespace VeterinariaPractica.Controladores {
         {
             _vista.Listar(_veterinarios);
         }
+        public Veterinario Seleccionar() {
+            string email = _vista.PedirEmail();
+            return _veterinarios.Find(veterinario => veterinario.Email == email);
+        }
+        public override void Eliminar() { 
+            Veterinario veterinarioSeleccionado = Seleccionar();
+            _veterinarios.Remove(veterinarioSeleccionado);
+        }
 
         public void CargarDesdeJson() {
             string contenidoJson = File.ReadAllText("Archivos/veterinarios.json", Encoding.UTF8);
