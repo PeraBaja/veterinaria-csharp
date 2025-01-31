@@ -5,8 +5,8 @@ namespace VeterinariaPractica.Vistas {
                 Console.WriteLine($"Número de matrícula: {veterinario.NúmeroMatrícula}");
                 Console.WriteLine($"Nombre: {veterinario.Nombre}");
                 Console.WriteLine($"Email: {veterinario.Email}");
-                Console.WriteLine($"Teléfono: {veterinario.Teléfono} | {veterinario.TipoTeléfono}");
-                Console.WriteLine($"Dirección: {veterinario.Dirección}");
+                Console.WriteLine($"Teléfono: {veterinario.Teléfono ?? "-"} | {veterinario.TipoTeléfono}");
+                Console.WriteLine($"Dirección: {veterinario.Dirección ?? "-"}");
         }
 
         public void Listar(List<Veterinario> veterinarios) {
